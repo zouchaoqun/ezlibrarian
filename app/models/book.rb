@@ -9,12 +9,14 @@ class Book < ActiveRecord::Base
     holder_id ? User.find(:first, :conditions => "users.id = #{holder_id}") : nil
   end
 
-  def before_save
-    
-  end
-
   def after_save
-
+    last_hch = HolderChangeHistory.find(:first, :conditions => "book_id = #{self.id}", :order => 'created_on desc')
+    if !last_hch || (last_hch.holder_id != self.holder_id)
+      hch = HolderChangeHistory.new
+      hch.book_id = self.id
+      hch.holder_id = self.holder_id
+      hch.save
+    end
   end
 
 end

@@ -38,9 +38,6 @@ class BooksController < ApplicationController
     render :template => 'books/index.html.erb', :layout => !request.xhr?
   end
   
-  def show
-  end
-
   def new
     @book = Book.new(params[:book])
     if request.post? && @book.save
@@ -71,6 +68,10 @@ class BooksController < ApplicationController
   end
 
   def show_reviews
+    
+  end
+
+  def show_holder_change_histories
     
   end
 
