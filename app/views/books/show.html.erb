@@ -1,0 +1,69 @@
+<div class="contextual">
+<%= link_to_if_authorized(l(:label_book_new), {:controller => 'books', :action => 'new', :project_id => @project}, :class => 'icon icon-add') %>
+<%= link_to_if_authorized(l(:button_update), {:controller => 'books', :action => 'edit', :id => @book, :project_id => @project}, :class => 'icon icon-edit', :accesskey => accesskey(:edit)) %>
+<%= link_to_if_authorized l(:button_delete), {:controller => 'books', :action => 'destroy', :id => @book, :project_id => @project}, :confirm => l(:text_are_you_sure), :method => :post, :class => 'icon icon-del' %>
+</div>
+
+<h2><%= @book.title %></h2>
+
+<div class="book" >
+
+<table width="100%">
+<tr>
+    <td style="width:15%"><b><%=l(:field_book_id)%>:</b></td>
+    <td style="width:35%"><%= @book.id %></td>
+    <td style="width:15%"><b><%=l(:field_holder)%>:</b></td>
+    <td style="width:35%"><%= @book.holder %></td>
+</tr>
+<tr>
+    <td style="width:15%"><b><%=l(:field_author)%>:</b></td>
+    <td style="width:35%"><%= @book.author %></td>
+    <td style="width:15%"><b><%=l(:field_translator)%>:</b></td>
+    <td style="width:35%"><%= @book.translator ? @book.translator : '-' %></td>
+</tr>
+<% if @book.original_title && @book.original_title.length > 0 %>
+<tr>
+    <td style="width:15%"><b><%=l(:field_original_title)%>:</b></td>
+    <td colspan="3" style="width:85%"><%= @book.original_title %></td>
+</tr>
+<% end %>
+<tr>
+    <td style="width:15%"><b><%=l(:field_publisher)%>:</b></td>
+    <td style="width:35%"><%= @book.publisher %></td>
+    <td style="width:15%"><b><%=l(:field_published_on)%>:</b></td>
+    <td style="width:35%"><%= @book.published_on %></td>
+</tr>
+<tr>
+    <td style="width:15%"><b><%=l(:field_isbn)%>:</b></td>
+    <td style="width:35%"><%= @book.isbn %></td>
+    <td style="width:15%"><b><%=l(:field_pages)%>:</b></td>
+    <td style="width:35%"><%= @book.pages %></td>
+</tr>
+<% if @book.intro_url && @book.intro_url.length > 0 %>
+<tr>
+    <td style="width:15%"><b><%=l(:field_intro_url)%>:</b></td>
+    <td colspan="3" style="width:85%"><%= link_to @book.intro_url, @book.intro_url, :popup => true %></td>
+</tr>
+<% end %>
+</table>
+
+<hr />
+<p><strong><%=l(:field_content)%></strong></p>
+<div class="wiki">
+<%= textilizable @book, :content %>
+</div>
+
+</div>
+
+<%# if @journals.any? %>
+<div id="history">
+<h3><%#=l(:label_history)%></h3>
+<%#= render :partial => 'history', :locals => { :journals => @journals } %>
+</div>
+<%# end %>
+
+<% html_title "#{l(:label_library)} : #{@book.title}" -%>
+
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag '/plugin_assets/redmine_ezlibrarian/stylesheets/ezlibrarian' %>
+<% end %>

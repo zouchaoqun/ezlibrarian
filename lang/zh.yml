@@ -1,0 +1,18 @@
+label_library: 图书馆
+label_books: 馆藏图书列表
+label_book_new: 新建图书
+label_book_edit: 更新图书
+
+field_book_id: 图书编号
+field_book_title: 书名
+field_original_title: 原书名
+field_book_author: 作者
+field_translator: 译者
+field_publisher: 出版社
+field_published_on: 出版日期
+field_holder: 持有人
+field_reviews_count: 评论数量
+field_isbn: ISBN
+field_pages: 页数
+field_content: 内容简介
+field_intro_url: 介绍网页
