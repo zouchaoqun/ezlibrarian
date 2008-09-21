@@ -23,7 +23,7 @@ class BooksController < ApplicationController
   
   layout 'base'  
   before_filter :find_project, :authorize
-  before_filter :find_book, :only => [:show, :edit, :destroy]
+  before_filter :find_book, :only => [:show, :edit, :destroy, :show_holder_change_histories]
   
   def index
     sort_init "title", "asc"
@@ -59,6 +59,10 @@ class BooksController < ApplicationController
     flash.now[:error] = l(:notice_locking_conflict)    
   end
 
+  def show
+    @reviews = @book.reviews
+  end
+
   def destroy
     @book.destroy
     redirect_to :action => 'index', :project_id => @project    
@@ -67,15 +71,9 @@ class BooksController < ApplicationController
   def add_review
   end
 
-  def show_reviews
-    
-  end
-
   def show_holder_change_histories
+    @hchs = @book.holder_change_histories
     
-  end
-
-  def change_holder
   end
 
 private

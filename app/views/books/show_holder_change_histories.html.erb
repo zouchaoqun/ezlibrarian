@@ -1,1 +1,28 @@
-<h2>Books#show_holder_change_histories</h2>
+<h2><%= l(:label_holder_change_histories, @book.title) %></h2>
+
+<h3><%= l(:label_holder_change_count, content_tag('acronym', distance_of_time_in_words(Time.now, @hchs.first.created_on), :title => format_time(@hchs.first.created_on)), @hchs.count - 1)  %></h3>
+
+<table class="hch-list">
+  <tr>
+    <th colspan="2"><%= l(:field_holder) %></th>
+    <th><%= l(:field_got_time) %></th>
+  </tr>
+  <% for hch in @hchs -%>
+    <tr>
+      <td class="<%= "icon icon-face#{hch.holder_id%10}" %>">&nbsp;</td>
+      <td class="holder"><%= hch.holder %></td>
+      <td class="time"><%= format_time(hch.created_on) %> </td>
+    </tr>
+    <% if hch != @hchs.last %>
+      <tr>
+        <td colspan="3" class="icon icon-down-arrow">&nbsp;</td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<% html_title "#{l(:label_library)} : #{l(:label_holder_change_histories, @book.title)}" -%>
+
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag '/plugin_assets/redmine_ezlibrarian/stylesheets/ezlibrarian' %>
+<% end %>

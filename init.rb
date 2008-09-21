@@ -24,8 +24,7 @@ Redmine::Plugin.register :redmine_ezlibrarian do
   version '0.0.1'
   
   project_module :ezlibrarian do
-    permission :view_books, {:books => [:index, :show, :add_review, :show_reviews, :show_holder_change_histories]}, :require => :member
-    permission :change_holder, {:books => :change_holder}, :require => :member
+    permission :view_books, {:books => [:index, :show, :add_review, :show_holder_change_histories]}, :require => :member
     permission :manage_books, {:books => [:new, :edit, :destroy]}, :require => :member
   end
 
