@@ -1,3 +1,24 @@
-# English strings go here
-my_label: "My label"
-label_menu: Librarian
+label_library: Book Shelf
+label_books: Books on the shelf
+label_book_new: New book
+label_book_edit: Update book
+label_holder_change_histories: Holder change histories of %s
+label_holder_change_count: Since %s, holder has been changed for %d times
+label_review: Reviews
+label_add_review: Add review
+
+field_book_id: Book no.
+field_book_title: Book title
+field_original_title: Original book title
+field_book_author: Author
+field_translator: Translator
+field_publisher: Publisher
+field_published_on: Published on
+field_holder: Holder
+field_reviews_count: Review count
+field_isbn: ISBN
+field_pages: Pages
+field_content: Abstract
+field_intro_url: Intro web page
+field_holder_change_histories_count: Holder change count
+field_got_time: Got time

@@ -1,4 +1,4 @@
 <% for review in reviews %>
   <h4><%= format_time(review.created_on) %> - <%= review.author.name %></h4>
-  <%= review.review %>
+  <%= textilizable review, :review %>
 <% end %>

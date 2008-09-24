@@ -69,6 +69,12 @@ class BooksController < ApplicationController
   end
 
   def add_review
+    @review = Review.new(params[:review])
+    @review.author_id = User.current.id
+    @review.book_id = params[:id]
+    if request.post? && @review.save
+      redirect_to :action => 'show', :id => params[:id], :project_id => @project
+    end
   end
 
   def show_holder_change_histories

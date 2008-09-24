@@ -1,4 +1,36 @@
 == ezLibrarian plugin 0.0.1
 
 Book shelf management plugin for redmine. It's designed for a internal use.
-内部使用的图书借阅管理插件
+
+== Installation
+
+=== Adding plugin support to Redmine
+
+To add plugin support to Redmine, install engines plugin:
+   See: http://rails-engines.org/
+   Also: http://www.redmine.org/wiki/redmine/Plugins
+It's better to use the 2.1.0 version.
+
+=== Plugin installation
+
+1. Copy the plugin directory(redmine_ezlibrarian) into the vendor/plugins directory
+
+2. Migrate plugin:
+   rake db:migrate_plugins
+
+3. Start Redmine
+
+Installed plugins are listed on 'Admin -> Information' screen.
+
+=== Feature
+1. Designed for using in company's book shelf management.
+2. You can input the book's info to the system and view them later.
+3. It can record the user who is holding the book.
+4. Every holder change will be recorded too.
+5. User can write reviews for the book.
+6. Note: the books are not categorized by project.
+
+=== Contact info
+
+Homepage -> http://218.107.133.32:5000/projects/show/ezwork powered by redmine
+Email    -> zouchaoqun@gmail.com 

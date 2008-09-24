@@ -62,8 +62,26 @@
 </div>
 
 <div class="contextual">
-<%= link_to_remote_if_authorized l(:label_add_review), { :url => {:action => 'add_review', :id => @book, :project_id => @project} }, :class => 'icon icon-comment' %>
+<%= link_to_if_authorized l(:label_add_review), 
+                          {:action => 'add_review', :id => @book, :project_id => @project},
+                          :class => 'icon icon-comment',
+                          :onclick => 'Element.show("add-review"); return false;'  %>
 </div>
+
+<% if authorize_for('books', 'add_review') %>
+  <div id="add-review" style="display:none;">
+    <h3><%= l(:label_add_review) %></h3>
+    <% form_for :review, :url => {:controller => 'books', :action => 'add_review', :id => @book, :project_id => @project} do |f| %>
+      <%= error_messages_for 'review' %>
+      <div class="box">
+      <p><%= f.text_area :review, :cols => 80, :rows => 10, :class => 'wiki-edit', :id => 'review_content' %></p>
+      <%= wikitoolbar_for 'review_content' %>
+      </div>
+      <p><%= submit_tag l(:button_create) %>
+      <%= link_to l(:button_cancel), "#", :onclick => 'Element.hide("add-review")' %></p>
+    <% end %>
+  </div>
+<% end %>
 
 <% if @reviews.any? %>
 <div id="review">
@@ -73,12 +91,6 @@
 </div>
 <% end %>
 
-<% if authorize_for('books', 'add_review') %>
-  <div id="add_review" style="display:none;">
-  <h3><%= l(:label_add_review) %></h3>
-  <%= render :partial => '_add_review' %>
-  </div>
-<% end %>
 
 <% html_title "#{l(:label_library)} : #{@book.title}" -%>
 
