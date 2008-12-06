@@ -9,8 +9,13 @@
   </tr>
   <% for hch in @hchs -%>
     <tr>
-      <td class="<%= "icon icon-face#{hch.holder_id%10}" %>">&nbsp;</td>
-      <td class="holder"><%= hch.holder %></td>
+      <% if hch.holder %>
+        <td class="icon"><%= avatar(hch.holder, :size => "32") %></td>
+        <td class="holder"><%= hch.holder %></td>
+      <% else %>
+        <td class="icon icon-nobody">&nbsp;</td>
+        <td class="holder"><%= l(:label_nobody) %></td>
+      <% end %>
       <td class="time"><%= format_time(hch.created_on) %> </td>
     </tr>
     <% if hch != @hchs.last %>

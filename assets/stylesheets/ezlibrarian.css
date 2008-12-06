@@ -7,14 +7,5 @@ table.hch-list td.holder { height: 40px; width: 40px; white-space: nowrap; paddi
 table.hch-list td.time { height: 40px; width: 40px; white-space: nowrap; padding-left: 20px; padding-right: 20px; }
 table.hch-list tbody tr:hover { background-color:#ffffdd; }
 
-.icon-face1 { background-image: url('../images/01.png'); }
-.icon-face2 { background-image: url('../images/02.png'); }
-.icon-face3 { background-image: url('../images/03.png'); }
-.icon-face4 { background-image: url('../images/04.png'); }
-.icon-face5 { background-image: url('../images/05.png'); }
-.icon-face6 { background-image: url('../images/06.png'); }
-.icon-face7 { background-image: url('../images/07.png'); }
-.icon-face8 { background-image: url('../images/08.png'); }
-.icon-face9 { background-image: url('../images/09.png'); }
-.icon-face0 { background-image: url('../images/10.png'); }
+.icon-nobody { background-image: url('../images/nobody.png'); }
 .icon-down-arrow { background-image: url('../images/down_arrow.png'); }

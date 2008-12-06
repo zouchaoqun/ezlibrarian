@@ -1,6 +1,25 @@
-== ezLibrarian plugin 0.0.1
+== ezLibrarian plugin 0.0.2
 
-Book shelf management plugin for redmine. It's designed for a internal use.
+Book shelf management plugin for redmine. 
+
+== Changelog
+
+version 0.0.2:
+1. Change the holder history page to use gravatar user icon.
+2. Add localization strings to plugin module name and permission name.
+3. Some minor bug fix.
+
+== IMPORTANT UPDATE NOTE!
+
+Version 0.0.2 uses gravatar user icon in the holder change history page, so it
+requires redmine devel r1972 at least.
+If you are using redmine 0.7.3, please DO NOT update to version 0.0.2.
+
+== Update note
+
+If you are updating from 0.0.1 to 0.0.2, you can delete this folder:
+  redmine\public\plugin_assets\redmine_ezlibrarian
+This folder contains some old images.
 
 == Installation
 
@@ -20,7 +39,7 @@ It's better to use the 2.1.0 version.
 
 3. Start Redmine
 
-Installed plugins are listed on 'Admin -> Information' screen.
+Installed plugins are listed on 'Admin -> Plugin' screen.
 
 === Feature
 1. Designed for using in company's book shelf management.

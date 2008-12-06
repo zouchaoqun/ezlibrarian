@@ -44,13 +44,14 @@
     <td style="width:15%"><b><%=l(:field_intro_url)%>:</b></td>
     <td colspan="3" style="width:85%"><%= link_to @book.intro_url, @book.intro_url, :popup => true %></td>
 </tr>
+<% end %>
 <tr>
     <td style="width:15%"><b><%=l(:field_holder_change_histories_count)%>:</b></td>
     <td style="width:35%"><%= @book.holder_change_histories_count > 1 ? "#{@book.holder_change_histories_count - 1} (" + link_to(l(:button_view), :action => 'show_holder_change_histories', :id => @book, :project_id => @project) + ')' : 0 %></td>
     <td style="width:15%">&nbsp;</td>
     <td style="width:35%">&nbsp;</td>
 </tr>
-<% end %>
+
 </table>
 
 <hr />
