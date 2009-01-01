@@ -27,7 +27,7 @@ class BooksController < ApplicationController
   
   def index
     sort_init "title", "asc"
-    sort_update
+    sort_update %w(id title author publisher published_on holder_id holder_change_histories_count reviews_count)
 
     @book_count = Book.count
     @book_pages = Paginator.new self, @book_count, per_page_option, params['page']

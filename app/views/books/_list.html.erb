@@ -1,6 +1,6 @@
 <table class="list">
   <thead><tr>
-	<%= sort_header_tag("#{Book.table_name}.id", :caption => '#') %>
+	<%= sort_header_tag("id", :caption => '#') %>
 	<%= sort_header_tag('title', :caption => l(:field_book_title), :default_order => 'asc') %>
 	<%= sort_header_tag('author', :caption => l(:field_book_author)) %>
         <%= sort_header_tag('publisher', :caption => l(:field_publisher)) %>
