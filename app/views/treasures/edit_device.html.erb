@@ -1,0 +1,14 @@
+<h2><%= l(:label_device_edit) %></h2>
+<% labelled_tabular_form_for :device, @device,
+                             :url => {:id => @device, :project_id => @project},
+                             :html => {:id => 'device-form'} do |f| %>
+    <%= error_messages_for 'device' %>
+    <div class="box">
+    <%= render :partial => 'treasures/device_form', :locals => {:f => f} %>
+    </div>
+    <%= submit_tag l(:button_update) %>
+<% end %>
+
+<% content_for :sidebar do %>
+    <%= render :partial => 'treasures/sidebar' %>
+<% end %>

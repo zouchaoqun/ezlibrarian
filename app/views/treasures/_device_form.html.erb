@@ -1,0 +1,16 @@
+<p><%= f.text_field :name, :label => :field_device_name, :size => 80, :required => true %></p>
+<p><%= f.text_field :model, :label => :field_device_model, :size => 80, :required => true %></p>
+<p><%= f.text_field :vendor, :label => :field_device_vendor, :size => 80, :required => true %></p>
+<p><%= f.text_field :manufactured_on, :size => 10, :required => true %><%= calendar_for('device_manufactured_on') %></p>
+<p><%= f.text_field :value, :size => 10, :required => true %><%= l(:'number.currency.format.unit') %></p>
+<p><%= f.text_area :description,
+                   :cols => 60,
+                   :rows => (@device.description.blank? ? 10 : [[10, @device.description.length / 50].max, 100].min),
+                   :accesskey => accesskey(:edit),
+                   :class => 'wiki-edit',
+                   :required => true %></p>
+<p><%= f.text_field :intro_url, :size => 80 %></p>
+<p><%= f.select :holder_id, (@project.assignable_users.collect {|m| [m.name, m.id]}), :required => true %></p>
+<%= f.hidden_field :lock_version %>
+
+<%= wikitoolbar_for 'device_description' %>

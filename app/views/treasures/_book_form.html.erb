@@ -1,9 +1,10 @@
-<p><%= f.text_field :title, :label => l(:field_book_title), :size => 80, :required => true %></p>
+<p><%= f.text_field :title, :label => :field_book_title, :size => 80, :required => true %></p>
 <p><%= f.text_field :original_title, :size => 80 %></p>
 <p><%= f.text_field :author, :size => 80, :required => true %></p>
 <p><%= f.text_field :translator, :size => 80 %></p>
 <p><%= f.text_field :publisher, :size => 80, :required => true %></p>
 <p><%= f.text_field :published_on, :size => 10, :required => true %><%= calendar_for('book_published_on') %></p>
+<p><%= f.text_field :value, :size => 10, :required => true %><%= l(:'number.currency.format.unit') %></p>
 <p><%= f.text_field :isbn, :size => 80, :required => true %></p>
 <p><%= f.text_field :pages, :size => 80, :required => true %></p>
 <p><%= f.text_area :content,
@@ -13,7 +14,7 @@
                    :class => 'wiki-edit',
                    :required => true %></p>
 <p><%= f.text_field :intro_url, :size => 80 %></p>
-<p><%= f.select :holder_id, (@project.assignable_users.collect {|m| [m.name, m.id]}) %></p>
+<p><%= f.select :holder_id, (@project.assignable_users.collect {|m| [m.name, m.id]}), :required => true %></p>
 <%= f.hidden_field :lock_version %>
 
 <%= wikitoolbar_for 'book_content' %>

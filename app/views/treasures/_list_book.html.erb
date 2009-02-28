@@ -10,16 +10,16 @@
 	<%= sort_header_tag('reviews_count', :caption => l(:field_reviews_count)) %>
   </tr></thead>
   <tbody>
-<% for book in books -%>
+<% for book in treasures -%>
   <tr class="<%= cycle("odd", "even") %>">
 	<td><%= book.id %></td>
-	<td><%= link_to book.title, :action => 'show', :id => book, :project_id => @project %></td>
+	<td><%= link_to book.title, :action => 'show_book', :id => book, :project_id => @project %></td>
 	<td><%= book.author %></td>
 	<td><%= book.publisher %></td>
 	<td><%= book.published_on %></td>
 	<td><%= book.holder ? link_to_user(book.holder) : '-' %></td>
-        <td><%= book.holder_change_histories_count > 1 ? "#{book.holder_change_histories_count - 1} (" + link_to(l(:button_view), :action => 'show_holder_change_histories', :id => book, :project_id => @project) + ')' : 0 %></td>
-        <td><%= book.reviews_count > 0 ? "#{book.reviews_count} (" + link_to(l(:button_view), :action => 'show', :anchor => 'reviews', :id => book, :project_id => @project) + ')' : 0 %></td>
+        <td><%= book.holder_change_histories_count > 1 ? "#{book.holder_change_histories_count - 1} (" + link_to(l(:button_view), :action => 'show_holder_change_histories', :id => book, :type => 'book', :project_id => @project) + ')' : 0 %></td>
+        <td><%= book.reviews_count > 0 ? "#{book.reviews_count} (" + link_to(l(:button_view), :action => 'show_book', :anchor => 'reviews', :id => book, :project_id => @project) + ')' : 0 %></td>
   </tr>
 <% end -%>
   </tbody>

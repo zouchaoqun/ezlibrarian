@@ -1,0 +1,20 @@
+<div class="contextual">
+<%= link_to_if_authorized @type_is_book ? l(:label_book_new) : l(:label_device_new),
+                          {:controller => 'treasures', :action => @type_is_book ? 'new_book' : 'new_device',
+                            :project_id => @project}, :class => 'icon icon-add' %>
+</div>
+
+<h2><%= @type_is_book ? l(:label_library) : l(:label_device_room) %></h2>
+
+<% if @treasures.empty? %>
+<p class="nodata"><%= l(:label_no_data) %></p>
+<% else %>
+<%= render :partial => @partial, :locals => {:treasures => @treasures} %>
+<p class="pagination"><%= pagination_links_full @pages, @count %></p>
+<% end %>
+
+<% content_for :sidebar do %>
+    <%= render :partial => 'treasures/sidebar' %>
+<% end %>
+
+<% html_title(l(:label_booty_bay)) -%>

@@ -1,0 +1,90 @@
+<div class="contextual">
+<%= link_to_if_authorized(l(:label_device_new), {:controller => 'treasures', :action => 'new_device', :project_id => @project}, :class => 'icon icon-add') %>
+<%= link_to_if_authorized(l(:button_update), {:controller => 'treasures', :action => 'edit_device', :id => @device, :project_id => @project}, :class => 'icon icon-edit', :accesskey => accesskey(:edit)) %>
+<%= link_to_if_authorized l(:button_delete), {:controller => 'treasures', :action => 'destroy_device', :id => @device, :project_id => @project}, :confirm => l(:text_are_you_sure), :method => :post, :class => 'icon icon-del' %>
+</div>
+
+<h2><%= "#{l(:label_device_room)} : #{@device.name}" %></h2>
+
+<div class="device" >
+
+<table width="100%">
+<tr>
+    <td style="width:15%"><b><%=l(:field_device_id)%>:</b></td>
+    <td style="width:35%"><%= @device.id %></td>
+    <td style="width:15%"><b><%=l(:field_holder)%>:</b></td>
+    <td style="width:35%"><%= @device.holder %></td>
+</tr>
+<tr>
+    <td style="width:15%"><b><%=l(:field_created_on)%>:</b></td>
+    <td style="width:35%"><%= @device.created_on.strftime('%Y-%m-%d') %></td>
+    <td style="width:15%"><b><%=l(:field_holder_change_histories_count)%>:</b></td>
+    <td style="width:35%"><%= @device.holder_change_histories_count > 1 ? "#{@device.holder_change_histories_count - 1} (" + link_to(l(:button_view), :action => 'show_holder_change_histories', :id => @device, :type => 'device', :project_id => @project) + ')' : 0 %></td>
+</tr>
+<tr>
+    <td style="width:15%"><b><%=l(:field_device_model)%>:</b></td>
+    <td style="width:35%"><%= @device.model %></td>
+    <td style="width:15%"><b><%=l(:field_device_vendor)%>:</b></td>
+    <td style="width:35%"><%= @device.vendor %></td>
+</tr>
+<tr>
+    <td style="width:15%"><b><%=l(:field_value)%></b></td>
+    <td style="width:35%"><%=number_to_currency(@device.value)%></td>
+    <td style="width:15%"><b><%=l(:field_manufactured_on)%>:</b></td>
+    <td style="width:35%"><%= @device.manufactured_on %></td>
+</tr>
+<% if @device.intro_url && @device.intro_url.length > 0 %>
+<tr>
+    <td style="width:15%"><b><%=l(:field_intro_url)%>:</b></td>
+    <td colspan="3" style="width:85%"><%= link_to @device.intro_url, @device.intro_url, :popup => true %></td>
+</tr>
+<% end %>
+</table>
+
+<hr />
+<p><strong><%=l(:field_description)%></strong></p>
+<div class="wiki">
+<%= textilizable @device, :description %>
+</div>
+
+</div>
+
+<div class="contextual">
+<%= link_to_if_authorized l(:label_add_review), 
+                          {:action => 'add_review', :id => @device, :type => 'device', :project_id => @project},
+                          :class => 'icon icon-comment',
+                          :onclick => 'Element.show("add-review"); return false;'  %>
+</div>
+
+<% if authorize_for('treasures', 'add_review') %>
+  <div id="add-review" style="display:none;">
+    <h3><%= l(:label_add_review) %></h3>
+    <% form_for :review, :url => {:controller => 'treasures', :action => 'add_review', :id => @device, :type => 'device', :project_id => @project} do |f| %>
+      <%= error_messages_for 'review' %>
+      <div class="box">
+      <p><%= f.text_area :review, :cols => 80, :rows => 10, :class => 'wiki-edit', :id => 'review_content' %></p>
+      <%= wikitoolbar_for 'review_content' %>
+      </div>
+      <p><%= submit_tag l(:button_create) %>
+      <%= link_to l(:button_cancel), "#", :onclick => 'Element.hide("add-review")' %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @reviews.any? %>
+<div id="review">
+<%= content_tag('a', '', :name => "reviews")%>
+<h3><%= l(:label_review) %></h3>
+<%= render :partial => 'review', :locals => { :reviews => @reviews } %>
+</div>
+<% end %>
+
+<% content_for :sidebar do %>
+    <%= render :partial => 'treasures/sidebar' %>
+<% end %>
+
+<% html_title "#{l(:label_device_room)} : #{@device.name}" -%>
+
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag '/plugin_assets/redmine_ezlibrarian/stylesheets/ezlibrarian' %>
+<% end %>

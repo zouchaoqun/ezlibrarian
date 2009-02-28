@@ -1,8 +1,14 @@
-== ezLibrarian plugin 0.0.2
+== ezLibrarian plugin 0.0.3
 
-Book shelf management plugin for redmine. 
+Book shelf and device room management plugin for redmine.
+Books and devices are not categorized by projects (that means every project's
+   ezlibrarian page will display the same book/device list)
 
 == Changelog
+
+version 0.0.3:
+1. Add device room management functions.
+2. Compitable with redmine devel and rails 2.2.2.
 
 version 0.0.2:
 1. Change the holder history page to use gravatar user icon.
@@ -11,24 +17,16 @@ version 0.0.2:
 
 == IMPORTANT UPDATE NOTE!
 
-Version 0.0.2 uses gravatar user icon in the holder change history page, so it
-requires redmine devel r1972 at least.
-If you are using redmine 0.7.3, please DO NOT update to version 0.0.2.
+Version 0.0.3 need rails 2.2.2 and redmine devel after r2534.
+Please DO NOT update to version 0.0.3 if you are not using redmine devel.
 
 == Update note
+
+See http://www.redmine.org/wiki/redmine/RedmineUpgrade
 
 If you are updating from 0.0.1 to 0.0.2, you can delete this folder:
   redmine\public\plugin_assets\redmine_ezlibrarian
 This folder contains some old images.
-
-== Installation
-
-=== Adding plugin support to Redmine
-
-To add plugin support to Redmine, install engines plugin:
-   See: http://rails-engines.org/
-   Also: http://www.redmine.org/wiki/redmine/Plugins
-It's better to use the 2.1.0 version.
 
 === Plugin installation
 
@@ -36,18 +34,19 @@ It's better to use the 2.1.0 version.
 
 2. Migrate plugin:
    rake db:migrate_plugins
+   If you are updating from a old version, see http://www.redmine.org/wiki/redmine/RedmineUpgrade
 
 3. Start Redmine
 
 Installed plugins are listed on 'Admin -> Plugin' screen.
 
 === Feature
-1. Designed for using in company's book shelf management.
-2. You can input the book's info to the system and view them later.
-3. It can record the user who is holding the book.
+1. Designed for using in company's book shelf and device room management.
+2. You can input the book(device)'s info to the system and view them later.
+3. It can record the user who is holding the book(device).
 4. Every holder change will be recorded too.
-5. User can write reviews for the book.
-6. Note: the books are not categorized by project.
+5. User can write reviews for the book(device).
+6. Note: the books(devices) are not categorized by project.
 
 === Contact info
 

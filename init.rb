@@ -20,13 +20,13 @@ require 'redmine'
 Redmine::Plugin.register :redmine_ezlibrarian do
   name 'Redmine ezLibrarian plugin'
   author 'Zou Chaoqun'
-  description 'This is a book shelf management plugin for Redmine'
-  version '0.0.2'
+  description 'This is a simple book shelf and device room management plugin for Redmine'
+  version '0.0.3'
   
   project_module :ezlibrarian do
-    permission :view_books, {:books => [:index, :show, :add_review, :show_holder_change_histories]}, :require => :member
-    permission :manage_books, {:books => [:new, :edit, :destroy]}, :require => :member
+    permission :view_treasures, {:treasures => [:index, :index_of_devices, :show_book, :show_device, :add_review, :show_holder_change_histories]}, :require => :member
+    permission :manage_treasures, {:treasures => [:new_book, :new_device, :edit_book, :edit_device, :destroy_book, :destroy_device]}, :require => :member
   end
 
-  menu :project_menu, :books, {:controller => 'books', :action => 'index'}, :caption => :label_library, :param => :project_id  
+  menu :project_menu, :treasures, {:controller => 'treasures', :action => 'index'}, :caption => :label_booty_bay, :param => :project_id
 end

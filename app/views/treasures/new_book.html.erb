@@ -3,9 +3,13 @@
 <% labelled_tabular_form_for :book, @book, :url => {:project_id => @project}, :html => {:id => 'book-form'} do |f| %>
     <%= error_messages_for 'book' %>
     <div class="box">
-    <%= render :partial => 'books/form', :locals => {:f => f} %>
+    <%= render :partial => 'treasures/book_form', :locals => {:f => f} %>
     </div>
     <%= submit_tag l(:button_create) %>
+<% end %>
+
+<% content_for :sidebar do %>
+    <%= render :partial => 'treasures/sidebar' %>
 <% end %>
 
 <% html_title(l(:label_library)) -%>

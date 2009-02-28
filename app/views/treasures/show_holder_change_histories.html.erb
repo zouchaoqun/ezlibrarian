@@ -1,6 +1,6 @@
-<h2><%= l(:label_holder_change_histories, @book.title) %></h2>
+<h2><%= l(:label_holder_change_histories, :value => @treasure_name) %></h2>
 
-<h3><%= l(:label_holder_change_count, content_tag('acronym', distance_of_time_in_words(Time.now, @hchs.first.created_on), :title => format_time(@hchs.first.created_on)), @hchs.count - 1)  %></h3>
+<h3><%= l(:label_holder_change_count, :age => content_tag('acronym', distance_of_time_in_words(Time.now, @hchs.first.created_on), :title => format_time(@hchs.first.created_on)), :count => @hchs.count - 1)  %></h3>
 
 <table class="hch-list">
   <tr>
@@ -10,7 +10,11 @@
   <% for hch in @hchs -%>
     <tr>
       <% if hch.holder %>
-        <td class="icon"><%= avatar(hch.holder, :size => "32") %></td>
+        <% if Setting.gravatar_enabled? %>
+          <td class="icon"><%= avatar(hch.holder, :size => "32") %></td>
+        <% else %>
+          <td class="icon icon-nobody">&nbsp;</td>
+        <% end %>
         <td class="holder"><%= hch.holder %></td>
       <% else %>
         <td class="icon icon-nobody">&nbsp;</td>
@@ -26,7 +30,11 @@
   <% end %>
 </table>
 
-<% html_title "#{l(:label_library)} : #{l(:label_holder_change_histories, @book.title)}" -%>
+<% content_for :sidebar do %>
+    <%= render :partial => 'treasures/sidebar' %>
+<% end %>
+
+<% html_title "#{l(:label_library)} : #{l(:label_holder_change_histories, :value => @treasure_name)}" -%>
 
 <% content_for :header_tags do %>
     <%= stylesheet_link_tag '/plugin_assets/redmine_ezlibrarian/stylesheets/ezlibrarian' %>

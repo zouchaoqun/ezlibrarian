@@ -1,0 +1,46 @@
+en:
+
+  label_booty_bay: Booty Bay
+
+  label_library: Book Shelf
+  label_book_new: New book
+  label_book_edit: Update book
+
+  label_device_room: Device Room
+  label_device_new: New device
+  label_device_edit: Update device
+
+  label_holder_change_histories: Holder change histories of {{value}}
+  label_holder_change_count: Since {{age}}, holder has been changed for {{count}} times
+  label_review: Reviews
+  label_add_review: Add review
+  label_nobody: Nobody
+
+  field_book_id: Book no.
+  field_book_title: Book title
+  field_original_title: Original book title
+  field_book_author: Author
+  field_translator: Translator
+  field_publisher: Publisher
+  field_published_on: Published on
+  field_isbn: ISBN
+  field_pages: Pages
+  field_content: Abstract
+
+  field_device_id: Device no.
+  field_device_name: Device name
+  field_device_model: Device model
+  field_device_vendor: Device vendor
+  field_manufactured_on: Manufactured on
+
+  field_value: Value
+  field_intro_url: Intro web page
+  field_holder: Holder
+  field_reviews_count: Review count
+  field_holder_change_histories_count: Holder change count
+  field_got_time: Got time
+
+  permission_view_treasures: View treasures
+  permission_manage_treasures: Manage treasures
+
+  project_module_ezlibrarian: Booty bay

@@ -1,11 +1,14 @@
 <h2><%= l(:label_book_edit) %></h2>
-<%= @book.lock_version %>
 <% labelled_tabular_form_for :book, @book,
                              :url => {:id => @book, :project_id => @project},
                              :html => {:id => 'book-form'} do |f| %>
     <%= error_messages_for 'book' %>
     <div class="box">
-    <%= render :partial => 'books/form', :locals => {:f => f} %>
+    <%= render :partial => 'treasures/book_form', :locals => {:f => f} %>
     </div>
     <%= submit_tag l(:button_update) %>
+<% end %>
+
+<% content_for :sidebar do %>
+    <%= render :partial => 'treasures/sidebar' %>
 <% end %>
