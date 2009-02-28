@@ -10,7 +10,7 @@ en:
   label_device_new: New device
   label_device_edit: Update device
 
-  label_holder_change_histories: Holder change histories of {{value}}
+  label_holder_change_histories: Holder change histories of < {{value}} >
   label_holder_change_count: Since {{age}}, holder has been changed for {{count}} times
   label_review: Reviews
   label_add_review: Add review
