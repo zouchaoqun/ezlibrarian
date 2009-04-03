@@ -26,6 +26,7 @@ See http://www.redmine.org/wiki/redmine/RedmineUpgrade
 === Plugin installation
 
 1. Copy the plugin directory(redmine_ezlibrarian) into the vendor/plugins directory
+   NOTE: The plugin directory must be redmine_ezlibrarian!
 
 2. Migrate plugin:
    rake db:migrate_plugins
