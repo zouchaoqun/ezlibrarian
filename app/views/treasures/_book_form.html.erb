@@ -16,5 +16,6 @@
 <p><%= f.text_field :intro_url, :size => 80 %></p>
 <p><%= f.select :holder_id, (@project.assignable_users.collect {|m| [m.name, m.id]}), :required => true %></p>
 <%= f.hidden_field :lock_version %>
+<%= f.hidden_field :updater_id, :value=>User.current.id%>
 
 <%= wikitoolbar_for 'book_content' %>

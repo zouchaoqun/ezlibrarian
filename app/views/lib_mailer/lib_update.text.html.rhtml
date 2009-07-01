@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <style>
+
+            body {
+              font-family: Verdana, sans-serif;
+              font-size: 1em;
+              color:#484848;
+            }
+
+    </style>
+  </head>
+  <body>
+    <%last=HolderChangeHistory.find_by_sql(["SELECT * FROM holder_change_histories where treasure_id = ? order by id desc   limit   1,1  ",@hch.treasure_id])
+    if @hch.treasure_type=='Book'
+      #name=Book.find(@hch.treasure_id).title
+      @book=Book.find(@hch.treasure_id)
+    %>
+      <h2><%=l(:text_update_mail5)%></h2>
+      <h2><%= "#{l(:field_book_title)} : #{@book.title}" %></h2>
+
+      <div class="book" >
+
+        <table width="100%">
+          <tr>
+            <td style="width:15%"><b><%=l(:field_book_id)%>:</b></td>
+            <td style="width:35%"><%= @book.id %></td>
+            <td style="width:15%"><b><%=l(:field_holder)%>:</b></td>
+            <td style="width:35%"><%= @book.holder %></td>
+          </tr>
+          <tr>
+            <td style="width:15%"><b><%=l(:field_created_on)%>:</b></td>
+            <td style="width:35%"><%= @book.created_on.strftime('%Y-%m-%d') %></td>
+            <td style="width:15%"><b><%=l(:field_holder_change_histories_count)%>:</b></td>
+            <td style="width:35%"><%= @book.holder_change_histories_count > 1 ? "#{@book.holder_change_histories_count - 1}" : 0 %></td>
+          </tr>
+          <tr>
+            <td style="width:15%"><b><%=l(:field_author)%>:</b></td>
+            <td style="width:35%"><%= @book.author %></td>
+            <% if @book.translator && @book.translator.length > 0 %>
+              <td style="width:15%"><b><%=l(:field_translator)%>:</b></td>
+              <td style="width:35%"><%= @book.translator %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td style="width:15%"><b><%=l(:field_publisher)%>:</b></td>
+            <td style="width:35%"><%= @book.publisher %></td>
+            <td style="width:15%"><b><%=l(:field_published_on)%>:</b></td>
+            <td style="width:35%"><%= @book.published_on %></td>
+          </tr>
+          <tr>
+            <td style="width:15%"><b><%=l(:field_isbn)%>:</b></td>
+            <td style="width:35%"><%= @book.isbn %></td>
+            <td style="width:15%"><b><%=l(:field_pages)%>:</b></td>
+            <td style="width:35%"><%= @book.pages %></td>
+          </tr>
+          <tr>
+            <td style="width:15%"><b><%=l(:field_value)%></b></td>
+            <td style="width:35%"><%=number_to_currency(@book.value)%></td>
+            <% if @book.original_title && @book.original_title.length > 0 %>
+              <td style="width:15%"><b><%=l(:field_original_title)%>:</b></td>
+              <td style="width:35%"><%= @book.original_title %></td>
+            <% end %>
+          </tr>
+          <% if @book.intro_url && @book.intro_url.length > 0 %>
+            <tr>
+              <td style="width:15%"><b><%=l(:field_intro_url)%>:</b></td>
+              <td colspan="3" style="width:85%"><%= link_to @book.intro_url, @book.intro_url, :popup => true %></td>
+            </tr>
+          <% end %>
+
+        </table>
+        <hr />
+        <p><strong><%=l(:field_content)%></strong></p>
+        <div class="wiki">
+          <%= textilizable @book, :content %>
+        </div>
+
+      </div>
+    <%
+    elsif @hch.treasure_type=='Device'
+      #name=Device.find(@hch.treasure_id).name
+      @device=Device.find(@hch.treasure_id)
+    %>
+      <h2><%=l(:text_update_mail6)%></h2>
+      <h2><%= "#{l(:field_device_name)} : #{@device.name}" %></h2>
+
+      <div class="device" >
+
+        <table width="100%">
+          <tr>
+            <td style="width:15%"><b><%=l(:field_device_id)%>:</b></td>
+            <td style="width:35%"><%= @device.id %></td>
+            <td style="width:15%"><b><%=l(:field_holder)%>:</b></td>
+            <td style="width:35%"><%= @device.holder %></td>
+          </tr>
+          <tr>
+            <td style="width:15%"><b><%=l(:field_created_on)%>:</b></td>
+            <td style="width:35%"><%= @device.created_on.strftime('%Y-%m-%d') %></td>
+            <td style="width:15%"><b><%=l(:field_holder_change_histories_count)%>:</b></td>
+            <td style="width:35%"><%= @device.holder_change_histories_count > 1 ? "#{@device.holder_change_histories_count - 1}"  : 0 %></td>
+          </tr>
+          <tr>
+            <td style="width:15%"><b><%=l(:field_device_model)%>:</b></td>
+            <td style="width:35%"><%= @device.model %></td>
+            <td style="width:15%"><b><%=l(:field_device_vendor)%>:</b></td>
+            <td style="width:35%"><%= @device.vendor %></td>
+          </tr>
+          <tr>
+            <td style="width:15%"><b><%=l(:field_value)%></b></td>
+            <td style="width:35%"><%=number_to_currency(@device.value)%></td>
+            <td style="width:15%"><b><%=l(:field_manufactured_on)%>:</b></td>
+            <td style="width:35%"><%= @device.manufactured_on %></td>
+          </tr>
+          <% if @device.intro_url && @device.intro_url.length > 0 %>
+            <tr>
+              <td style="width:15%"><b><%=l(:field_intro_url)%>:</b></td>
+              <td colspan="3" style="width:85%"><%= link_to @device.intro_url, @device.intro_url, :popup => true %></td>
+            </tr>
+          <% end %>
+        </table>
+
+        <hr />
+        <p><strong><%=l(:field_description)%></strong></p>
+        <div class="wiki">
+          <%= textilizable @device, :description %>
+        </div>
+
+      </div>
+    <%
+    else
+      name="error"
+    end
+  %>
+
+    <hr />
+    <b><%=l(:text_update_mail2)%>:</b> <%=User.find(last[0].holder_id).name%><br />
+    <b><%=l(:text_update_mail3)%>:</b> <%=User.find(@hch.holder_id).name%>	<br />
+    <b><%=l(:text_update_mail4)%>:</b> <%=User.find(@hch.updater_id).name%><br />
+  </body>
+</html> 

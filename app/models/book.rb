@@ -15,7 +15,14 @@ class Book < ActiveRecord::Base
       hch = HolderChangeHistory.new
       hch.treasure = self
       hch.holder_id = self.holder_id
+	  hch.updater_id = self.updater_id
       hch.save
+	  @hch=HolderChangeHistory.find(:first,:order=>'id desc')
+      unless last_hch.nil?	  
+	    LibMailer.deliver_lib_update(@hch,last_hch.holder_id)
+      else
+        LibMailer.deliver_lib_new(@hch)
+      end		
     end
   end
 

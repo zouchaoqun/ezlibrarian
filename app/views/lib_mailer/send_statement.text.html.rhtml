@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <style>
+
+      body {
+        font-family: Verdana, sans-serif;
+        font-size: 1em;
+        color:#484848;
+      }
+
+    </style>
+  </head>
+  <body>
+    <%
+    user=User.find(@id)
+    bk=Book.find(:all,:conditions=>["holder_id=?",user.id])
+    de=Device.find(:all,:conditions=>["holder_id=?",user.id])
+  %>
+
+    <b><%=l(:text_send_hello)%>: </b><%=user.name%><br />
+    <div style="margin:12px 12px 9px 18px"><%=l(:text_statment_hello)%></div>
+    <%unless bk.empty?%>
+      <b><%=l(:text_send_books)%>:</b>
+      <%bk.each{ |b|%>
+        <b><%= "#{l(:field_book_title)} : " %></b><%=b.title%>
+
+        <div class="book" >
+
+          <table width="80%">
+            <tr>
+              <td style="width:15%"><b><%=l(:field_book_id)%>:</b></td>
+              <td style="width:35%"><%= b.id %></td>
+              <td style="width:15%"><b><%=l(:field_holder)%>:</b></td>
+              <td style="width:35%"><%= b.holder %></td>
+            </tr>
+            <tr>
+              <td style="width:15%"><b><%=l(:field_created_on)%>:</b></td>
+              <td style="width:35%"><%= b.created_on.strftime('%Y-%m-%d') %></td>
+              <%ts=HolderChangeHistory.find_by_sql(["select * from holder_change_histories where treasure_id = ? and treasure_type ='Book' order by created_on desc",b.id])%>
+              <td style="width:15%"><b><%=l(:text_send_datetime)%>:</b></td>
+              <td style="width:35%"><%=ts[0].created_on.strftime('%Y-%m-%d') %></td>
+            </tr>
+            <tr>
+              <td style="width:15%"><b><%=l(:field_author)%>:</b></td>
+              <td style="width:35%"><%= b.author %></td>
+              <% if b.translator && b.translator.length > 0 %>
+                <td style="width:15%"><b><%=l(:field_translator)%>:</b></td>
+                <td style="width:35%"><%= b.translator %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td style="width:15%"><b><%=l(:field_publisher)%>:</b></td>
+              <td style="width:35%"><%= b.publisher %></td>
+              <td style="width:15%"><b><%=l(:field_published_on)%>:</b></td>
+              <td style="width:35%"><%= b.published_on %></td>
+            </tr>
+            <tr>
+              <td style="width:15%"><b><%=l(:field_isbn)%>:</b></td>
+              <td style="width:35%"><%= b.isbn %></td>
+              <td style="width:15%"><b><%=l(:field_pages)%>:</b></td>
+              <td style="width:35%"><%= b.pages %></td>
+            </tr>
+            <tr>
+              <td style="width:15%"><b><%=l(:field_value)%></b></td>
+              <td style="width:35%"><%=number_to_currency(b.value)%></td>
+              <% if b.original_title && b.original_title.length > 0 %>
+                <td style="width:15%"><b><%=l(:field_original_title)%>:</b></td>
+                <td style="width:35%"><%= b.original_title %></td>
+              <% end %>
+            </tr>
+            <% if b.intro_url && b.intro_url.length > 0 %>
+              <tr>
+                <td style="width:15%"><b><%=l(:field_intro_url)%>:</b></td>
+                <td colspan="3" style="width:85%"><%= link_to b.intro_url, b.intro_url, :popup => true %></td>
+              </tr>
+            <% end %>
+
+          </table>
+        </div>
+        <br />
+      <%}%>
+    <%end%>
+
+    <%unless de.empty?%>
+      <h2><%=l(:text_send_devices)%>:</h2>
+      <%de.each{ |d|%>
+        <b><%=l(:field_device_name)%>:</b>     <%=d.name%><br />
+
+
+        <div class="device" >
+
+          <table width="80%">
+            <tr>
+              <td style="width:15%"><b><%=l(:field_device_id)%>:</b></td>
+              <td style="width:35%"><%= d.id %></td>
+              <td style="width:15%"><b><%=l(:field_holder)%>:</b></td>
+              <td style="width:35%"><%= d.holder %></td>
+            </tr>
+            <tr>
+              <td style="width:15%"><b><%=l(:field_created_on)%>:</b></td>
+              <td style="width:35%"><%= d.created_on.strftime('%Y-%m-%d') %></td>
+              <%ts=HolderChangeHistory.find_by_sql(["select * from holder_change_histories where treasure_id = ? and treasure_type ='Device' order by created_on desc",d.id])%>
+              <td style="width:15%"><b><%=l(:text_send_datetime)%>:</b></td>
+              <td style="width:35%"><%=ts[0].created_on.strftime('%Y-%m-%d')%></td>
+            </tr>
+            <tr>
+              <td style="width:15%"><b><%=l(:field_device_model)%>:</b></td>
+              <td style="width:35%"><%= d.model %></td>
+              <td style="width:15%"><b><%=l(:field_device_vendor)%>:</b></td>
+              <td style="width:35%"><%= d.vendor %></td>
+            </tr>
+            <tr>
+              <td style="width:15%"><b><%=l(:field_value)%></b></td>
+              <td style="width:35%"><%=number_to_currency(d.value)%></td>
+              <td style="width:15%"><b><%=l(:field_manufactured_on)%>:</b></td>
+              <td style="width:35%"><%= d.manufactured_on %></td>
+            </tr>
+            <% if d.intro_url && d.intro_url.length > 0 %>
+              <tr>
+                <td style="width:15%"><b><%=l(:field_intro_url)%>:</b></td>
+                <td colspan="3" style="width:85%"><%= link_to d.intro_url, d.intro_url, :popup => true %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        <br />
+      <%}%>
+    <%end%>
+  </body>
+</html> 

@@ -15,6 +15,9 @@ zh:
   label_review: 评论记录
   label_add_review: 添加评论
   label_nobody: 未指定
+  label_statment: 发送对账单
+  
+  
 
   field_book_id: 图书编号
   field_book_title: 书名
@@ -36,9 +39,39 @@ zh:
   field_value: 价值
   field_intro_url: 介绍网页
   field_holder: 持有人
+  field_updater: 更新人
   field_reviews_count: 评论数量
   field_holder_change_histories_count: 换手次数
   field_got_time: 入手时间
+  text_statment_count: 总共将发送邮件数量
+  text_statment_receiver: 发往{{name}}的邮件详情如下
+  text_statment_submit: 发送
+  text_send_successful: 对账单发送成功
+  text_stateaddress: 邮件成功发送到如下地址
+  text_holder_change1: 的持有人从
+  text_holder_change2: 改变到
+  text_holder_change3: 通过
+  text_title_statment: 对账单发送
+  text_update_mail1: 持有人改变
+  text_update_mail2: 先前的设备持有人
+  text_update_mail3: 当前设备持有人
+  text_update_mail4: 操作更新人
+  text_update_mail5: 图书持有人变更，相关信息如下
+  text_update_mail6: 设备持有人变更，相关信息如下
+  text_update_subject1: 图书持有人变更通知
+  text_update_subject2: 设备持有人变更通知
+  text_new_subject1: 图书创建并借出通知
+  text_new_subject2: 设备创建并借出通知
+  text_new_mail5: 图书成功创建，相关信息如下
+  text_new_mail6: 设备成功创建，相关信息如下
+  text_new_mail1: 成功创建
+  text_new_mail2: 成功创建 拥有人是
+  text_send_all: 设备持有情况报告
+  text_send_hello: 您好
+  text_send_books: 图书列表
+  text_send_datetime: 入手时间
+  text_send_devices: 设备列表
+  text_statment_hello: 您收到这封邮件是因为您持有本系统记录的图书或设备，请核实帐单详情如下
 
   permission_view_treasures: 查看宝贝
   permission_manage_treasures: 管理宝贝

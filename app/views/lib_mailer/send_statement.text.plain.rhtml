@@ -1,0 +1,27 @@
+<%
+user=User.find(@id)
+bk=Book.find(:all,:conditions=>["holder_id=?",user.id])
+de=Device.find(:all,:conditions=>["holder_id=?",user.id])
+%>
+<%=l(:text_send_hello)%>: <%=user.name%>
+<%if !bk.empty?%>
+<%=l(:text_send_books)%>:
+<%bk.each{ |b|%>
+<%=l(:field_book_title)%>:   <%=b.title%>
+<%=l(:field_book_author)%>:  <%=b.author%>
+<%=l(:field_isbn)%>:    <%=b.isbn%>
+<%ts=HolderChangeHistory.find_by_sql(["select * from holder_change_histories where treasure_id = ? and treasure_type ='Book' order by created_on desc",b.id])%>
+<%=l(:text_send_datetime)%>:<%=ts[0].created_on%>
+<%}%>
+<%end%>
+
+<%if !de.empty?%>
+<%=l(:text_send_devices)%>:
+<%de.each{ |d|%>
+<%=l(:field_device_name)%>:     <%=d.name%>
+<%=l(:field_device_vendor)%>:   <%=d.vendor%>
+<%=l(:field_value)%>:    <%=d.value%>
+<%ts=HolderChangeHistory.find_by_sql(["select * from holder_change_histories where treasure_id = ? and treasure_type ='Device' order by created_on desc",d.id])%>
+<%=l(:text_send_datetime)%>: <%=ts[0].created_on%>
+<%}%>
+<%end%>

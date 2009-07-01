@@ -1,0 +1,67 @@
+<h2><%=l(:text_title_statment)%></h2>
+<% @user_list.each{|user_id|
+  books=Book.find(:all,:conditions=>["holder_id=?",user_id])
+  devices=Device.find(:all,:conditions=>["holder_id=?",user_id])
+  name=User.find(user_id).name
+%>
+<%=l(:text_statment_receiver,:name => name)%>:
+<table class="list">
+<tr>
+    <th><%=  '#' %></th>
+    <th><%= l(:field_book_title) %>/<%=l(:field_device_name)%></th>
+    <th><%= l(:field_book_author) %>/<%=l(:field_device_vendor)%></th>
+    <th><%= l(:field_publisher) %>/<%=l(:field_device_model)%></th>
+    <th><%= l(:field_published_on) %>/<%=l(:field_manufactured_on)%></th>
+    <th><%= l(:field_holder) %></th>
+    <th><%= l(:field_holder_change_histories_count) %></th>
+    <th><%= l(:field_reviews_count) %>/<%=%></th>
+</tr>
+<tbody>
+<%unless books.empty?%>
+<% for book in books -%>
+  <tr class="<%= cycle("odd", "even") %>" align="center">
+	<td><%= book.id %></td>
+	<td><%= link_to book.title, :action => 'show_book', :id => book, :project_id => @project %></td>
+	<td><%= book.author %></td>
+	<td><%= book.publisher %></td>
+	<td><%= book.published_on %></td>
+	<td><%= book.holder ? link_to_user(book.holder) : '-' %></td>
+        <td><%= book.holder_change_histories_count > 1 ? "#{book.holder_change_histories_count - 1} (" + link_to(l(:button_view), :action => 'show_holder_change_histories', :id => book, :type => 'book', :project_id => @project) + ')' : 0 %></td>
+        <td><%= book.reviews_count > 0 ? "#{book.reviews_count} (" + link_to(l(:button_view), :action => 'show_book', :anchor => 'reviews', :id => book, :project_id => @project) + ')' : 0 %></td>
+  </tr>
+<% end -%>
+<% end -%>
+
+
+<%
+unless devices.empty?
+%>
+<% for device in devices -%>
+  <tr class="<%= cycle("odd", "even") %>" align="center">
+	<td><%= device.id %></td>
+	<td><%= link_to device.name, :action => 'show_device', :id => device, :project_id => @project %></td>
+	<td><%= device.vendor %></td>
+	<td><%= device.model %></td>
+	<td><%= device.manufactured_on %></td>
+	<td><%= device.holder ? link_to_user(device.holder) : '-' %></td>
+        <td><%= device.holder_change_histories_count > 1 ? "#{device.holder_change_histories_count - 1} (" + link_to(l(:button_view), :action => 'show_holder_change_histories', :id => device, :type => 'device', :project_id => @project) + ')' : 0 %></td>
+        <td><%= device.reviews_count > 0 ? "#{device.reviews_count} (" + link_to(l(:button_view), :action => 'show_device', :anchor => 'reviews', :id => device, :project_id => @project) + ')' : 0 %></td>
+  </tr>
+<% end -%>
+<%end%>
+  </tbody>
+</table>
+
+<%}%>
+<div style="text-align:right;margin-right:20px">
+<h3><%=l(:text_statment_count)%>: <%=@user_list.length%></h3>
+
+<%=button_to(l(:text_statment_submit),:action =>'send_statement' ,:controller=>'treasures',:project_id => @project,:list=> @user_list)%>
+</div>
+
+<% content_for :sidebar do %>
+    <%= render :partial => 'treasures/sidebar' %>
+<% end %>
+
+<% html_title(l(:label_booty_bay)) -%>
+

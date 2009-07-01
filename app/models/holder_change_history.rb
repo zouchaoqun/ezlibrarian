@@ -6,4 +6,7 @@ class HolderChangeHistory < ActiveRecord::Base
   def holder
     holder_id ? User.find(:first, :conditions => "users.id = #{holder_id}") : nil
   end  
+  def updater
+    updater_id ? User.find(:first, :conditions => "users.id = #{updater_id}") : nil
+  end 
 end

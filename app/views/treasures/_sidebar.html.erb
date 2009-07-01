@@ -2,3 +2,5 @@
 <%= link_to l(:label_library), { :controller => 'treasures', :action => 'index', :project_id => @project } %>
 <br />
 <%= link_to l(:label_device_room), { :controller => 'treasures', :action => 'index_of_devices', :project_id => @project } %>
+<br />
+<%= link_to l(:label_statment),{:controller => 'treasures',:action => 'show_statement',:project_id=> @project} %>

@@ -6,6 +6,7 @@
   <tr>
     <th colspan="2"><%= l(:field_holder) %></th>
     <th><%= l(:field_got_time) %></th>
+	<th colspan="2"><%= l(:field_updater) %></th>
   </tr>
   <% for hch in @hchs -%>
     <tr>
@@ -21,6 +22,12 @@
         <td class="holder"><%= l(:label_nobody) %></td>
       <% end %>
       <td class="time"><%= format_time(hch.created_on) %> </td>
+	    <% unless hch.updater.nil? %>
+          <td class="holder"><%= hch.updater %></td>
+        <% else %>
+          <td class="icon icon-nobody">&nbsp;</td>
+        <% end %>
+	  
     </tr>
     <% if hch != @hchs.last %>
       <tr>
