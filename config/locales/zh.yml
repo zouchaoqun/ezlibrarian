@@ -58,10 +58,10 @@ zh:
   text_update_mail4: 操作更新人
   text_update_mail5: 图书持有人变更，相关信息如下
   text_update_mail6: 设备持有人变更，相关信息如下
-  text_update_subject1: 图书持有人变更通知
-  text_update_subject2: 设备持有人变更通知
-  text_new_subject1: 图书创建并借出通知
-  text_new_subject2: 设备创建并借出通知
+  text_update_subject1: 图书{{name}}持有人变更通知
+  text_update_subject2: 设备{{name}}持有人变更通知
+  text_new_subject1: 图书{{name}}创建借出通知
+  text_new_subject2: 设备{{name}}创建借出通知
   text_new_mail5: 图书成功创建，相关信息如下
   text_new_mail6: 设备成功创建，相关信息如下
   text_new_mail1: 成功创建

@@ -56,8 +56,8 @@ en:
   text_update_mail4: Update User
   text_update_mail5: Book holder has been changed, Here is the info below
   text_update_mail6: Device holder has been changed, Here is the info below
-  text_update_subject1: Holder of Book change Notice
-  text_update_subject2: Holder of Devcie change Notice
+  text_update_subject1: Holder of Book {{name}}change Notice
+  text_update_subject2: Holder of Devcie {{name}}change Notice
   text_new_subject1: Book lend out Notice
   text_new_subject2: Device lend out Notice  
   text_new_mail5: Book created successfull, Here is the info below
