@@ -20,7 +20,7 @@
     <b><%=l(:text_send_hello)%>: </b><%=user.name%><br />
     <div style="margin:12px 12px 9px 18px"><%=l(:text_statment_hello)%></div>
     <%unless bk.empty?%>
-      <b><%=l(:text_send_books)%>:</b>
+      <h2><%=l(:text_send_books)%>:</h2>
       <%bk.each{ |b|%>
         <b><%= "#{l(:field_book_title)} : " %></b><%=b.title%>
 

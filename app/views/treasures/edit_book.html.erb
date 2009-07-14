@@ -1,4 +1,4 @@
-<h2><%= l(:label_book_edit) %><%=User.current%></h2>
+<h2><%= l(:label_book_edit) %></h2>
 <% labelled_tabular_form_for :book, @book,
                              :url => {:id => @book, :project_id => @project},
                              :html => {:id => 'book-form'} do |f| %>

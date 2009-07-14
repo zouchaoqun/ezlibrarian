@@ -16,8 +16,6 @@ zh:
   label_add_review: 添加评论
   label_nobody: 未指定
   label_statment: 发送对账单
-  
-  
 
   field_book_id: 图书编号
   field_book_title: 书名
@@ -43,30 +41,23 @@ zh:
   field_reviews_count: 评论数量
   field_holder_change_histories_count: 换手次数
   field_got_time: 入手时间
-  text_statment_count: 总共将发送邮件数量
-  text_statment_receiver: 发往{{name}}的邮件详情如下
+
+  text_statment_count: 发送邮件总数
+  text_statment_receiver: 发送给 {{name}} 的对账单内容如下
   text_statment_submit: 发送
   text_send_successful: 对账单发送成功
-  text_stateaddress: 邮件成功发送到如下地址
-  text_holder_change1: 的持有人从
-  text_holder_change2: 改变到
-  text_holder_change3: 通过
-  text_title_statment: 对账单发送
-  text_update_mail1: 持有人改变
-  text_update_mail2: 先前的设备持有人
-  text_update_mail3: 当前设备持有人
-  text_update_mail4: 操作更新人
-  text_update_mail5: 图书持有人变更，相关信息如下
-  text_update_mail6: 设备持有人变更，相关信息如下
-  text_update_subject1: 图书{{name}}持有人变更通知
-  text_update_subject2: 设备{{name}}持有人变更通知
-  text_new_subject1: 图书{{name}}创建借出通知
-  text_new_subject2: 设备{{name}}创建借出通知
-  text_new_mail5: 图书成功创建，相关信息如下
-  text_new_mail6: 设备成功创建，相关信息如下
-  text_new_mail1: 成功创建
-  text_new_mail2: 成功创建 拥有人是
-  text_send_all: 设备持有情况报告
+  text_title_statment: 发送对账单
+  text_last_holder: 原持有人
+  text_current_holder: 当前持有人
+  text_holder_change_notice: 持有人变更，相关信息如下
+  text_book_created_subject: 图书《{{name}}》创建并借出通知
+  text_device_created_subject: 设备《{{name}}》创建并借出通知
+  text_book_holder_change_subject: 图书《{{name}}》持有人变更通知
+  text_device_holder_change_subject: 设备《{{name}}》持有人变更通知
+  text_book_created: 图书创建成功，相关信息如下
+  text_device_created: 设备创建成功，相关信息如下
+
+  text_statment_subject: 图书及设备持有情况报告
   text_send_hello: 您好
   text_send_books: 图书列表
   text_send_datetime: 入手时间

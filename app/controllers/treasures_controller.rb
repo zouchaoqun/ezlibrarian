@@ -139,15 +139,16 @@ class TreasuresController < ApplicationController
     @user_list = list.uniq
 	  render :template => 'treasures/show_statement.html.erb', :layout => !request.xhr?
   end
+
   def send_statement
     @list=params[:list]
 	  @user=User.find(:all,:conditions=>["id in (?)",@list])
-    LibMailer.deliver_send_statement()
-    #@hch=HolderChangeHistory.find(:first)
-    #LibMailer.deliver_lib_new(@hch)
+    
+    @list.each{|id| LibMailer.deliver_send_statement_each(id)}
+    
     flash[:notice]=l(:text_send_successful)
     redirect_to :action => 'show_statement', :project_id => @project
-	  #render :template => 'treasures/send_statement.html.erb', :layout => !request.xhr?
+
   end
   private
   def find_project

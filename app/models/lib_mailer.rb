@@ -35,34 +35,25 @@ class LibMailer < Mailer
 
     recipients mail_addresses.compact.uniq
 	sent_on Time.now
-=begin
-#{l(:label_faq_new)}
-=end
+
     if hch.treasure_type=='Book'
-	  subject "#{l(:text_update_subject1,:name=>name)}"
+	  subject "#{l(:text_book_holder_change_subject, :name=>name)}"
 	elsif hch.treasure_type=='Device'
-	  subject "#{l(:text_update_subject2,:name=>name)}"
+	  subject "#{l(:text_device_holder_change_subject, :name=>name)}"
 	end
-#    subject "#{hch.treasure_type} - #{name} #{l(:text_holder_change1)} #{User.find(last_id).name} #{l(:text_holder_change2)} #{User.find(hch.holder_id).name} #{l(:text_holder_change3)} #{User.find(hch.updater_id).name}"
+
     body   :hch => hch,
          	:last_id => last_id,
 			:name => name
-#@body(:recipient => recipient)
+
 
     content_type "multipart/alternative"
    part :content_type => "text/plain",
         :body => render_message("lib_update.text.plain.rhtml", :hch => hch)
    part :content_type => "text/html",
         :body => render_message("lib_update.text.html.rhtml", :hch => hch)
-=begin
-    part "text/plain" do |p|
-      p.body = render_message("lib_update.text.plain.rhtml", :hch => hch)
-    end
 
-    part "text/html" do |p|
-      p.body = render_message("lib_update.text.html.rhtml", :hch => hch)
-    end
-=end
+
   end
 #新创建时直接指定持有人时的邮件
   def lib_new(hch)
@@ -83,11 +74,10 @@ class LibMailer < Mailer
     recipients mail_addresses.compact.uniq
 	sent_on Time.now
 
-#    subject "#{hch.treasure_type} - #{name} #{l(:text_new_mail2)} #{User.find(hch.holder_id).name} #{l(:text_holder_change3)} #{User.find(hch.updater_id).name}"
-    if hch.treasure_type=='Book'
-	  subject "#{l(:text_new_subject1,:name=>name)}"
+  if hch.treasure_type=='Book'
+	  subject "#{l(:text_book_created_subject,:name=>name)}"
 	elsif hch.treasure_type=='Device'
-	  subject "#{l(:text_new_subject2,:name=>name)}"
+	  subject "#{l(:text_device_created_subject,:name=>name)}"
 	end
     body   :hch => hch,
 		   :name => name
@@ -120,7 +110,7 @@ class LibMailer < Mailer
     mail_addresses = [ user.mail ]
     recipients mail_addresses.compact.uniq
     sent_on Time.now
-    subject "#{l(:text_send_all)}"
+    subject "#{l(:text_statment_subject)}"
         content_type "multipart/alternative"
    part :content_type => "text/plain",
         :body => render_message("send_statement.text.plain.rhtml", :id => id)

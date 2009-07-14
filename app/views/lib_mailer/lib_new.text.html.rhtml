@@ -15,7 +15,7 @@
     if @hch.treasure_type=='Book'
       @book=Book.find(@hch.treasure_id)
     %>
-      <h2><%=l(:text_new_mail5)%></h2>
+      <h2><%=l(:text_book_created)%></h2>
       <h2><%= "#{l(:field_book_title)} : #{@book.title}" %></h2>
 
       <div class="book" >
@@ -80,7 +80,7 @@
     elsif @hch.treasure_type=='Device'
       @device=Device.find(@hch.treasure_id)
     %>
-      <h2><%=l(:text_new_mail6)%></h2>
+      <h2><%=l(:text_device_created)%></h2>
       <h2><%= "#{l(:field_device_name)} : #{@device.name}" %></h2>
 
       <div class="device" >
@@ -131,7 +131,7 @@
     end
   %>
     <hr />
-    <b><%=l(:text_update_mail3)%>:</b> <%=User.find(@hch.holder_id).name%>	<br />
-    <b><%=l(:text_update_mail4)%>:</b> <%=User.find(@hch.updater_id).name%><br />
+    <b><%=l(:text_current_holder)%>:</b> <%=User.find(@hch.holder_id).name%>	<br />
+    <b><%=l(:field_updater)%>:</b> <%=User.find(@hch.updater_id).name%><br />
   </body>
 </html> 
