@@ -1,10 +1,10 @@
-<h2><%=l(:text_title_statment)%></h2>
+<h2><%=l(:text_title_statement)%></h2>
 <% @user_list.each{|user_id|
   books=Book.find(:all,:conditions=>["holder_id=?",user_id])
   devices=Device.find(:all,:conditions=>["holder_id=?",user_id])
   name=User.find(user_id).name
 %>
-<%=l(:text_statment_receiver,:name => name)%>:
+<%=l(:text_statement_receiver,:name => name)%>:
 <table class="list">
 <tr>
     <th><%=  '#' %></th>
@@ -54,9 +54,9 @@ unless devices.empty?
 
 <%}%>
 <div style="text-align:right;margin-right:20px">
-<h3><%=l(:text_statment_count)%>: <%=@user_list.length%></h3>
+<h3><%=l(:text_statement_count)%>: <%=@user_list.length%></h3>
 
-<%=button_to(l(:text_statment_submit),:action =>'send_statement' ,:controller=>'treasures',:project_id => @project,:list=> @user_list)%>
+<%=button_to(l(:text_statement_submit),:action =>'send_statement' ,:controller=>'treasures',:project_id => @project,:list=> @user_list)%>
 </div>
 
 <% content_for :sidebar do %>

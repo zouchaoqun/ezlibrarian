@@ -1,4 +1,4 @@
-=== ezLibrarian plugin 0.1.1
+=== ezLibrarian plugin 0.1.5
 
 Book shelf and device room management plugin for redmine.
 Books and devices are not categorized by projects (that means every project's ezlibrarian page will display the same book/device list)
@@ -8,9 +8,10 @@ ONLY compatible with Redmine 0.8.3 or last devel.
 1. Designed for using in company's book shelf and device room management.
 2. You can input the book(device)'s info to the system and view them later.
 3. It can record the user who is holding the book(device).
-4. Every holder change will be recorded.
+4. Every holder change will be recorded, and a notify email will be sent on change.
 5. User can write reviews for the book(device).
 6. Note: the books(devices) are not categorized by project.
+7. Send statement email to holders.
 
 === Plugin installation
 
@@ -26,6 +27,10 @@ Installed plugins are listed on 'Admin -> Plugin' screen.
 
 == Changelog
 
+version 0.1.5
+1. Send notify email on create and holder change.
+2. Send statement email to holders.
+
 version 0.1.1
 1. Check for redmine's compitable.
 
@@ -40,5 +45,5 @@ version 0.0.2:
 
 === Contact info
 
-Homepage -> http://218.107.133.32:5000/projects/ezwork powered by redmine
+Homepage -> http://ezwork.techcon.thtf.com.cn/projects/ezwork powered by redmine
 Email    -> zouchaoqun@gmail.com

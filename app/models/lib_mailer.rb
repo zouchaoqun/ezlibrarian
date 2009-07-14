@@ -96,7 +96,7 @@ class LibMailer < Mailer
     mail_addresses = [ user.mail ]
     recipients mail_addresses.compact.uniq
     sent_on Time.now
-    subject "#{l(:text_statment_subject)}"
+    subject "#{l(:text_statement_subject)}"
     content_type "multipart/alternative"
     part :content_type => "text/plain",
       :body => render_message("send_statement.text.plain.rhtml", :id => id)

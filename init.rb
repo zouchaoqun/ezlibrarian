@@ -21,8 +21,8 @@ Redmine::Plugin.register :redmine_ezlibrarian do
   name 'Redmine ezLibrarian plugin'
   author 'Zou Chaoqun'
   description 'This is a simple book shelf and device room management plugin for Redmine'
-  version '0.1.1'
-  url 'http://218.107.133.32:5000/projects/ezwork'
+  version '0.1.5'
+  url 'http://ezwork.techcon.thtf.com.cn/projects/ezwork'
   author_url 'mailto:zouchaoqun@gmail.com'
   
   project_module :ezlibrarian do

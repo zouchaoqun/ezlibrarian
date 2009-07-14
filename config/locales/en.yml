@@ -15,7 +15,7 @@ en:
   label_review: Reviews
   label_add_review: Add review
   label_nobody: Nobody
-  label_statment: send check email
+  label_statement: send check email
 
   field_book_id: Book no.
   field_book_title: Book title
@@ -42,11 +42,11 @@ en:
   field_holder_change_histories_count: Holder change count
   field_got_time: Got time
 
-  text_statment_count: The number of emails will send
-  text_statment_receiver: Detail information will send to {{name}}
-  text_statment_submit: Send
+  text_statement_count: The number of emails will send
+  text_statement_receiver: Detail information will send to {{name}}
+  text_statement_submit: Send
   text_send_successful: Emails Send Successfull
-  text_title_statment: information will send as follow
+  text_title_statement: information will send as follow
   text_last_holder: Last Holder
   text_current_holder: Current Holder
   text_holder_change_notice: Holder has been changed, see details below
@@ -57,12 +57,12 @@ en:
   text_book_created: Book created successfull, see details below
   text_device_created: Device created successfull, see details below
 
-  text_statment_subject: Holding Statment
+  text_statement_subject: Holding statement
   text_send_hello: Hello
   text_send_books: Books
   text_send_datetime: Got on
   text_send_devices: Devices
-  text_statment_hello: Here is the detail as follow
+  text_statement_hello: Here is the detail as follow
   
   permission_view_treasures: View treasures
   permission_manage_treasures: Manage treasures
