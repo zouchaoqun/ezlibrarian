@@ -1,0 +1,70 @@
+tr:
+
+  label_booty_bay: Demirbaþ
+
+  label_library: Kütüphane
+  label_book_new: Yeni kitap
+  label_book_edit: Kitabý güncelle
+
+  label_device_room: Ekipman Deposu
+  label_device_new: Yeni ekipman
+  label_device_edit: Ekipmaný güncelle
+
+  label_holder_change_histories: < {{value}} > için kullanýcý deðiþiklik tarihçesi
+  label_holder_change_count: {{age}} dan bu yana, kullanýcý {{count}} kez deðiþti
+  label_review: Eleþtiriler
+  label_add_review: Eleþtiri ekle
+  label_nobody: Kimse
+  label_statement: E-posta gönder
+
+  field_book_id: Kitap no.
+  field_book_title: Kitap baþlýðý
+  field_original_title: Orjinal kitap baþlýðý
+  field_book_author: Yazar
+  field_translator: Çevirmen
+  field_publisher: Basýmevi
+  field_published_on: Basým tarihi
+  field_isbn: ISBN
+  field_pages: Sayfa sayýsý
+  field_content: Özet
+
+  field_device_id: Ekipman no.
+  field_device_name: Ekipman adý
+  field_device_model: Ekipman modeli
+  field_device_vendor: Ekipman üreticisi
+  field_manufactured_on: Üretim tarihi
+
+  field_value: Deðer
+  field_intro_url: Web sayfasý
+  field_holder: Kullanýcý
+  field_updater: Güncelleyen
+  field_reviews_count: Eleþtiri sayýsý
+  field_holder_change_histories_count: Kullanýcý deðiþiklik sayýsý
+  field_got_time: Zaman
+
+  text_statement_count: Gönderilecek e-posta sayýsý
+  text_statement_receiver: {{name}} e gönderilecek bilgi
+  text_statement_submit: Gönder
+  text_send_successful: E-posta baþarýlý bir þekilde gönderildi
+  text_title_statement: Bilgi aþaðýdaki þekilde gönderilecek
+  text_last_holder: Son kullanýcý
+  text_current_holder: Mevcut kullanýcý
+  text_holder_change_notice: Kullanýcý deðiþti, detaylar aþaðýdadýr
+  text_book_created_subject: Kitap verme bildirimi
+  text_device_created_subject: Ekipman verme bildirimi
+  text_book_holder_change_subject: Kitap kullanýcýsý <{{name}}> deðiþiklik bilgisi
+  text_device_holder_change_subject: Ekipman kullanýcýsý <{{name}}> deðiþiklik bilgisi
+  text_book_created: Kitap baþarýlý bir þekilde oluþturuldu, detaylarý aþaýðda görebilirsiniz
+  text_device_created: Ekipman baþarýlý bir þekilde oluþturuldu, detaylarý aþaýðda görebilirsiniz
+
+  text_statement_subject: Kullanýcý açýklamasý
+  text_send_hello: Merhaba
+  text_send_books: Kitaplar
+  text_send_datetime: Zaman
+  text_send_devices: Ekipmanlar
+  text_statement_hello: Detaylar þu þekildedir
+  
+  permission_view_treasures: Kaynaklarý gör
+  permission_manage_treasures: Kaynaklarý yönet
+
+  project_module_ezlibrarian: Demirbaþ
