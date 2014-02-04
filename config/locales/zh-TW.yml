@@ -1,0 +1,70 @@
+zh-TW:
+  
+  label_booty_bay: 藏寶海灣
+
+  label_library: 圖書館
+  label_book_new: 新建圖書
+  label_book_edit: 更新圖書
+
+  label_device_room: 設備間
+  label_device_new: 新建設備
+  label_device_edit: 更新設備
+
+  label_holder_change_histories: 《{{value}}》的換手記錄
+  label_holder_change_count: 從 {{age}} 以來共換手 {{count}} 次
+  label_review: 評論記錄
+  label_add_review: 添加評論
+  label_nobody: 未指定
+  label_statement: 發送對賬單
+
+  field_book_id: 圖書編號
+  field_book_title: 書名
+  field_original_title: 原書名
+  field_book_author: 作者
+  field_translator: 譯者
+  field_publisher: 出版社
+  field_published_on: 出版日期
+  field_isbn: ISBN
+  field_pages: 頁數
+  field_content: 內容簡介
+
+  field_device_id: 設備編號
+  field_device_name: 設備名稱
+  field_device_model: 設備型號
+  field_device_vendor: 設備廠商
+  field_manufactured_on: 出廠日期
+
+  field_value: 價值
+  field_intro_url: 介紹網頁
+  field_holder: 持有人
+  field_updater: 更新人
+  field_reviews_count: 評論數量
+  field_holder_change_histories_count: 換手次數
+  field_got_time: 入手時間
+
+  text_statement_count: 發送郵件總數
+  text_statement_receiver: 發送給 {{name}} 的對賬單內容如下
+  text_statement_submit: 發送
+  text_send_successful: 對賬單發送成功
+  text_title_statement: 發送對賬單
+  text_last_holder: 原持有人
+  text_current_holder: 當前持有人
+  text_holder_change_notice: 持有人變更，相關信息如下
+  text_book_created_subject: 圖書《{{name}}》創建並借出通知
+  text_device_created_subject: 設備《{{name}}》創建並借出通知
+  text_book_holder_change_subject: 圖書《{{name}}》持有人變更通知
+  text_device_holder_change_subject: 設備《{{name}}》持有人變更通知
+  text_book_created: 圖書創建成功，相關信息如下
+  text_device_created: 設備創建成功，相關信息如下
+
+  text_statement_subject: 圖書及設備持有情況報告
+  text_send_hello: 您好
+  text_send_books: 圖書列表
+  text_send_datetime: 入手時間
+  text_send_devices: 設備列表
+  text_statement_hello: 您收到這封郵件是因為您持有本系統記錄的圖書或設備，請核實帳單詳情如下
+
+  permission_view_treasures: 查看寶貝
+  permission_manage_treasures: 管理寶貝
+
+  project_module_ezlibrarian: 藏寶海灣
